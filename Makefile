@@ -1,29 +1,42 @@
-CC = gcc
-
-CFLAGS = -Wall -Wextra -Werror -c
-
-SRC_FC =	*.c
-
-SRC_FO =	*.o
-
 NAME = libft.a
+
+INC_DIR		= ./includes
+SRC_DIR		= ./sources
+OBJ_DIR		= ./objects
+
+HEAD		= $(INC_DIR)/libft.h
+
+SRC		=	 *.c
+
+OBJS	=	$(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
+
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME):
-	@$(CC) $(CFLAGS) $(SRC_FC)
-	@ar rc libft.a $(SRC_FO)
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+
+$(NAME): $(OBJ_DIR) $(OBJS) $(HEAD) $(PFT_OBJ_DIR) $(PFT_OBJS) $(PFT_HEAD)
+	@ar rc $(NAME) $(OBJS) $(PFT_OBJS)
+	@ranlib $(NAME)
+	@echo "libft.a was created"
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@clang $F -g -c $< -I$(INC_DIR) -o$@
 
 clean:
-	@/bin/rm -f $(SRC_FO)
+	@rm -Rf $(OBJ_DIR) $(PFT_OBJ_DIR)
+	@echo "Objects was deleted"
 
 fclean: clean
-	@/bin/rm -f libft.a
+	@rm -f $(NAME)
+	@echo "libft.a was deleted"
 
 re: fclean all
 
-check: re
-	@/bin/rm -f $(SRC_FO)
-
 norm:
-	@norminette *.c
+	@norminette
+
+.PHONY: all clean fclean re norm
