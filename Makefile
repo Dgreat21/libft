@@ -18,8 +18,8 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 
-$(NAME): $(OBJ_DIR) $(OBJS) $(HEAD) $(PFT_OBJ_DIR) $(PFT_OBJS) $(PFT_HEAD)
-	@ar rc $(NAME) $(OBJS) $(PFT_OBJS)
+$(NAME): $(OBJ_DIR) $(OBJS) $(HEAD)
+	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 	@echo "libft.a was created"
 
@@ -27,7 +27,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@clang $F -g -c $< -I$(INC_DIR) -o$@
 
 clean:
-	@rm -Rf $(OBJ_DIR) $(PFT_OBJ_DIR)
+	@rm -Rf $(OBJ_DIR)
 	@echo "Objects was deleted"
 
 fclean: clean
