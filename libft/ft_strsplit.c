@@ -47,22 +47,6 @@ static int		ft_strlendel(char const *s, char c)
 	return (res);
 }
 
-static	void	ft_clear(char ***res)
-{
-	int	i;
-
-	if (!res || !(*res))
-		return ;
-	i = 0;
-	while ((*res)[i])
-	{
-		free((*res)[i]);
-		i++;
-	}
-	free(*res);
-	*res = NULL;
-}
-
 static void		ft_move(char **now, char c, char ***res, int j)
 {
 	if (!((*res)[j] = ft_strsub(*now, 0, ft_strlendel(*now, c))))
