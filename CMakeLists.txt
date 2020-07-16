@@ -88,8 +88,12 @@ set(libft
         libft/min_max.c
         libft/micro_pf.c
         libft/vardump.c
-        libft/ft_clear.c libft/ft_atoll.c libft/ft_atoul.c libft/ft_atoll_base.c
-        libft/ft_atoul_base.c libft/ft_lltoa_base.c)
+        libft/ft_clear.c libft/ft_atoll.c
+        libft/ft_atoul.c
+        libft/ft_atoll_base.c
+        libft/ft_atoul_base.c
+        libft/ft_lltoa_base.c
+        libft/ft_strndup.c)
 
 set(t_string
         t_string/dg_strchr.c
@@ -115,7 +119,7 @@ set(t_string
         t_string/dg_atoi.c
         t_string/dg_atoi_base.c
         t_string/dg_itoa.c
-        t_string/dg_itoa_base.c t_string/dg_atoi_base.c t_string/dg_lltoa.c)
+        t_string/dg_itoa_base.c t_string/dg_atoi_base.c t_string/dg_lltoa.c t_string/dg_cpy.c t_string/dg_insert.c t_string/dg_strndup.c)
 
 set(mini_pf
         mini_pf/mini_pf.c)

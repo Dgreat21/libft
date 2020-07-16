@@ -12,6 +12,14 @@
 
 #include "t_string.h"
 
+char	*dg_shstrchr(t_string *str, int c)
+{
+	char *ptr;
+	ptr = ft_memchr(str->s + str->shift, c, str->size);
+	str->shift = ptr - str->s + 1;
+	return (ptr);
+}
+
 char	*dg_strchr(t_string str, int c)
 {
 	return (ft_memchr(str.s, c, str.size));

@@ -17,8 +17,9 @@ t_string	dg_init_str(uint32_t size)
 {
 	t_string str;
 
-	str.s = ft_strnew(size);
+	str.s = ft_strnew(size + 1);
 	str.size = size;
+	str.shift = 0;
 	return (str);
 }
 
@@ -31,6 +32,7 @@ t_string	dg_prototype_str(uint32_t size, char *s)
 	str.size = size;
 	str.cur = ft_strlen(s);
 	str.s = ft_strnew(size);
+	str.shift = 0;
 	ft_strncpy(str.s, s, (str.cur > str.size) ? (str.cur) : (str.size));
 	return (str);
 }
@@ -43,6 +45,7 @@ t_string	dg_create_str(char *s)
 	str.cur = ft_strlen(s);
 	str.size = str.cur;
 	str.s = ft_strdup_safe(s);
+	str.shift = 0;
 	return (str);
 }
 
@@ -54,5 +57,6 @@ t_string	dg_copy_str(char *s)
 	str.cur = ft_strlen(s);
 	str.size = str.cur;
 	str.s = s;
+	str.shift = 0;
 	return (str);
 }

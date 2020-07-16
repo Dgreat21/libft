@@ -222,12 +222,13 @@ void				ft_clear(char ***res);
 char				*ft_triplestrjoin(char const *s1, char const *s2,
 		char const *s3);
 
-long long int 		ft_atoll(const char *s);
-uint64_t 			ft_atoul(const char *s);
+long long int		ft_atoll(const char *s);
+uint64_t			ft_atoul(const char *s);
 uint64_t			ft_atoul_base(const char *s, int base);
 uint64_t			ft_atoll_base(const char *s, int base);
 
 char				*ft_lltoa_base(long long int m, int base);
-u_int64_t 			ft_powll_uint(uint64_t x, unsigned int a);
+u_int64_t			ft_powll_uint(uint64_t x, unsigned int a);
+char				*ft_strndup(const char *src, int32_t len);
 
 #endif
