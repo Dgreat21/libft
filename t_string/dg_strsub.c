@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   dg_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgreat <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 06:51:56 by dgreat            #+#    #+#             */
-/*   Updated: 2019/04/15 19:00:45 by dgreat           ###   ########.fr       */
+/*   Created: 2020/07/13 16:59:26 by dgreat            #+#    #+#             */
+/*   Updated: 2020/07/16 12:02:09 by dgreat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "t_string.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_string dg_strsub(t_string s, unsigned int start, size_t len)
 {
-	int		i;
-	int		j;
-	char	*dest;
-
-	if (!s1 || !s2)
-		return (NULL);
-	i = ft_strlen(s1) + ft_strlen(s2);
-	if ((dest = (char *)malloc(sizeof(char) * (i + 1))) == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j])
-	{
-		dest[i] = s2[j];
-		i++;
-		j++;
-	}
-	dest[i] = s2[j];
-	return (dest);
+	return (dg_create_str(ft_strsub(s.s, start, len)));
 }

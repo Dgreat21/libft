@@ -17,6 +17,8 @@
 # include <string.h>
 # include <stdio.h>
 # include "get_next_line.h"
+# include <stdbool.h>
+# include <stdarg.h>
 
 typedef struct		s_list
 {
@@ -29,9 +31,9 @@ typedef struct		s_list
 ** Extra
 */
 
-int					ft_log(long n, size_t base);
+int					ft_log(long long int n, size_t base);
 
-int					ft_pow_uint(int x, unsigned int a);
+u_int64_t ft_pow_uint(int x, unsigned int a);
 
 size_t				ft_strmlen(const char *str, char c);
 
@@ -212,5 +214,20 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int					get_next_line(const int fd, char **line);
+
+void				micro_pf(int num, bool spaces, ...);
+
+void				ft_clear(char ***res);
+
+char				*ft_triplestrjoin(char const *s1, char const *s2,
+		char const *s3);
+
+long long int 		ft_atoll(const char *s);
+uint64_t 			ft_atoul(const char *s);
+uint64_t			ft_atoul_base(const char *s, int base);
+uint64_t			ft_atoll_base(const char *s, int base);
+
+char				*ft_lltoa_base(long long int m, int base);
+u_int64_t 			ft_powll_uint(uint64_t x, unsigned int a);
 
 #endif

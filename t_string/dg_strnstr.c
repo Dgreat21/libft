@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow_uint.c                                      :+:      :+:    :+:   */
+/*   dg_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgreat <dgreat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dgreat <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 17:47:13 by dgreat            #+#    #+#             */
-/*   Updated: 2019/04/22 17:47:19 by dgreat           ###   ########.fr       */
+/*   Created: 2020/07/13 16:59:26 by dgreat            #+#    #+#             */
+/*   Updated: 2020/07/16 12:02:09 by dgreat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "t_string.h"
 
-int		ft_pow_uint(int x, unsigned int a)
+char	*dg_strnstr(t_string src, t_string find, size_t len)
 {
-	int		tmp;
-
-	if (a == 0)
-		return (1);
-	else if (a == 1)
-		return (x);
-	tmp = x;
-	while (a - 1)
-	{
-		x *= tmp;
-		a--;
-	}
-	return (x);
+	return (ft_strnstr(src.s, find.s, len));
 }
